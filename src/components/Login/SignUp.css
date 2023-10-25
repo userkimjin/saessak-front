@@ -1,0 +1,178 @@
+/* SignUp.css */
+
+.signup-container1 {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  /* background-color: #f4f4f4; */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.signup-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-checkbtn {
+  background-color: rgba(109, 200, 42, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.signup-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* 라벨에 대한 공통 스타일 */
+.signup-text-id {
+  width: 15%;
+  font-weight: bold;
+}
+
+/* 텍스트 입력 필드에 대한 공통 스타일 */
+.signup-text-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+  outline-color: rgba(109, 200, 42, 0.7);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 버튼 스타일 */
+.signup-bt1,
+.signup-bt2,
+.signup-bt3 {
+  padding: 8px 12px;
+  border: none;
+  background-color: rgba(109, 200, 42, 0.7);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 20%;
+}
+
+/* 라디오 버튼에 대한 추가 스타일 */
+.signup-text-radio {
+  margin-right: 5px;
+}
+
+/* 체크박스 스타일 */
+.signup-Divcheckbox {
+  margin-top: 15px;
+}
+
+/* 체크박스 라벨 스타일 */
+.signup-checktype {
+  margin: 5px 0;
+}
+
+/* 제출 버튼 */
+.signup-checkbtn {
+  background-color: rgba(109, 200, 42, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  width: 40vw;
+}
+.signup-divtitle {
+  text-align: center;
+}
+.signup-Divcheckbox {
+  border-top: 1px solid lightgray;
+  padding-top: 30px;
+}
+.signup-divcheckbtn {
+  text-align: center;
+}
+.signup-failed-msg {
+  color: red;
+}
+.signup-duplicated-msg {
+  color: red;
+  font-size: small;
+  font-weight: bold;
+}
+.signup-duplicated1-msg {
+  color: blue;
+  font-size: small;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) and (min-width: 425px) {
+  .signup-text-id {
+    width: 22%;
+    font-weight: bold;
+  }
+  .signup-text-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 55%;
+    outline-color: rgba(109, 200, 42, 0.7);
+  }
+  .signup-bt1,
+  .signup-bt2,
+  .signup-bt3 {
+    padding: 8px 12px;
+    border: none;
+    background-color: rgba(109, 200, 42, 0.7);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 20%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .signup-text-id {
+    display: none;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .signup-text-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    outline-color: rgba(109, 200, 42, 0.7);
+  }
+  .signup-bt1,
+  .signup-bt2,
+  .signup-bt3 {
+    padding: 8px 12px;
+    border: none;
+    background-color: rgba(109, 200, 42, 0.7);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.5rem;
+    width: auto;
+  }
+}

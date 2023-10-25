@@ -1,0 +1,210 @@
+* {
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding-top: 160px;
+}
+
+#mainContainer {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+.carousel-style {
+  width: 100%;
+}
+
+.slide-title {
+  height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.slide-item {
+  width: 100%;
+  padding: 0 20px;
+  cursor: pointer;
+}
+// .slide-item > div:first-child {
+//   width: 25vw;
+//   height: 25vw;
+//   overflow: hidden;
+//   position: relative;
+// }
+
+.slide-item img {
+  // position: absolute;
+  // top: 50%;
+  // left: 0;
+  // transform: translateY(-50%);
+  width: 25vw;
+  height: 25vw;
+  object-fit: contain;
+  object-position: 50% 50%;
+}
+
+.slide-textBox {
+  padding: 10px 0;
+}
+
+.slide-item > .slide-text {
+  font-size: 1rem;
+}
+
+// 요즘뜨는상품 스타일
+.menu2 {
+  margin-top: 20vh;
+}
+
+#hotItemContainer {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  // perspective: 1000px;
+}
+
+@mixin hotItem($url: url) {
+  background-image: url($url);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  //
+  padding: 5px;
+  // background-color: #e7e7e7;
+  background-color: rgba(199, 138, 67, 0.1);
+  border-radius: 5px;
+  width: 100%;
+  height: 20vw;
+  text-align: center;
+  line-height: 20vw;
+  font-size: 1.7rem;
+  color: white;
+  font-weight: 600;
+  text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0),
+    0px -1px rgb(0, 0, 0);
+  cursor: pointer;
+  &:hover {
+    transition: all ease-in-out 0.3s;
+    transform: scale(1.1);
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.7);
+    background-color: rgba(109, 200, 42, 0.4);
+    border-radius: 30%;
+  }
+}
+
+.hotItem1 {
+  @include hotItem($url: "../../img/notebook.png");
+}
+
+.hotItem2 {
+  @include hotItem($url: "../../img/earphone.png");
+}
+.hotItem3 {
+  @include hotItem($url: "../../img/cpu.png");
+}
+.hotItem4 {
+  @include hotItem($url: "../../img/nintendo.png");
+}
+.hotItem5 {
+  @include hotItem($url: "../../img/iphone.png");
+}
+.hotItem6 {
+  @include hotItem($url: "../../img/bag.png");
+}
+.hotItem7 {
+  @include hotItem($url: "../../img/ipad.png");
+}
+.hotItem8 {
+  @include hotItem($url: "../../img/converse.png");
+}
+
+.menu3 {
+  margin-top: 20vh;
+}
+
+.newProductContainer {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+
+.newItem {
+  width: 1fr;
+  cursor: pointer;
+  padding: 10px;
+  &:hover {
+    transition: all ease 0.3s;
+    transform: translateY(-20px);
+    box-shadow: 1px 5px 10px rgba(199, 138, 67, 0.7);
+  }
+}
+
+.newItem > img {
+  width: 100%;
+  height: 18vw;
+  border-radius: 5px;
+}
+
+.newItem > p:nth-of-type(2) {
+  font-weight: bold;
+}
+.newItemTitle {
+  height: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 태블릿 미디어쿼리
+@media screen and (max-width: 700px) and (min-width: 530px) {
+  * {
+    transition: all ease-out 0.3s;
+  }
+  .newProductContainer {
+    grid-template-columns: repeat(2, 50%);
+    .newItem > img {
+      height: 35vw;
+    }
+  }
+
+  #hotItemContainer > div {
+    font-size: 1.2rem;
+  }
+}
+
+// 모바일 미디어쿼리
+@media screen and (max-width: 529px) {
+  * {
+    transition: all ease-out 0.3s;
+  }
+  .slide-item {
+    padding: 5px;
+  }
+  .slide-item > img {
+    width: 40vw;
+    height: 40vw;
+  }
+  .newProductContainer {
+    display: block;
+    .newItem > img {
+      height: 70vw;
+    }
+  }
+  #hotItemContainer {
+    div {
+      font-size: 1.3rem;
+      height: 30vw;
+      line-height: 30vw;
+    }
+    grid-template-columns: repeat(2, 50%);
+    gap: 10px;
+  }
+}

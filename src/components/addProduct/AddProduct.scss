@@ -1,0 +1,196 @@
+.addProductContainer {
+  width: 80%;
+  // height: 100vh;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  background-color: rgba(199, 138, 67, 0.05);
+}
+
+.imgUploadBox {
+  display: flex;
+  align-items: center;
+  height: 500px;
+}
+.previewImg {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  height: 500px;
+  align-items: center;
+}
+.labelButton {
+  line-height: 200px;
+  text-align: center;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 200px;
+  height: 200px;
+  font-size: 0.8rem;
+}
+
+.labelButton > label {
+  display: block;
+  cursor: pointer;
+}
+
+.labelButton:hover {
+  background-color: rgba(109, 200, 42, 0.7);
+  transition: all 0.5s;
+}
+
+.imgUploadBox input {
+  visibility: hidden;
+}
+
+.imgItem {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #e2e2e2;
+  background-color: white;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.addContents {
+  padding-left: 10vw;
+  margin-top: 20px;
+  // position: relative;
+}
+
+// .addContents input,
+// .addContents textarea {
+//   border-radius: 5px;
+//   border: 1px solid rgba(199, 138, 67, 0.7);
+//   outline-color: rgba(199, 138, 67, 0.9);
+// }
+
+.addName,
+.addPrice,
+.addLocal {
+  input {
+    border-radius: 5px;
+    border: 1px solid rgba(199, 138, 67, 0.7);
+    outline-color: rgba(199, 138, 67, 0.9);
+  }
+}
+.addText textarea {
+  border-radius: 5px;
+  border: 1px solid rgba(199, 138, 67, 0.7);
+  outline-color: rgba(199, 138, 67, 0.9);
+}
+
+.addName,
+.addPrice,
+.addLocal,
+.addText,
+.submitBtn {
+  margin-bottom: 30px;
+}
+
+.addName > input {
+  width: 40%;
+  height: 40px;
+  padding: 10px;
+}
+
+.addPrice > input {
+  width: 40%;
+  height: 40px;
+  padding: 10px;
+}
+
+.addLocal > input {
+  width: 40%;
+  height: 40px;
+  padding: 10px;
+}
+
+.addText > textarea {
+  width: 80%;
+  height: 200px;
+  padding: 10px;
+}
+
+// .submitBtn {
+//   position: absolute;
+//   bottom: -15%;
+//   right: 20%;
+// }
+
+.submitBtn > button {
+  width: 100px;
+  height: 50px;
+  margin-left: 20px;
+  background-color: rgb(145, 63, 63);
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.submitBtn > button:hover {
+  background-color: rgba(109, 200, 42, 0.7);
+  transition: all 0.5s;
+}
+
+// 태블릿 미디어쿼리
+@media screen and (max-width: 768px) and (min-width: 425px) {
+  .content-form input {
+    width: 80%;
+  }
+  .labelButton {
+    width: 150px;
+    height: 150px;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: ellipsis;
+    line-height: 150px;
+    padding: 0 10px;
+  }
+  .imgItem {
+    width: 200px;
+    height: 200px;
+  }
+  .imgUploadBox {
+    display: block;
+  }
+  .previewImg {
+    height: 300px;
+  }
+}
+
+// 모바일 미디어쿼리
+@media screen and (max-width: 424px) {
+  .content-form input {
+    width: 80%;
+  }
+  .imgUploadBox {
+    display: block;
+    > div:nth-of-type(2) {
+      width: 150px;
+    }
+    height: 400px;
+  }
+  .previewImg {
+    height: 250px;
+  }
+  .labelButton {
+    width: 100px;
+    height: 100px;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: ellipsis;
+    line-height: 100px;
+    padding: 0 10px;
+    font-size: 0.7rem;
+    margin-right: 0;
+  }
+  .imgItem {
+    width: 150px;
+    height: 150px;
+  }
+  .submitBtn {
+    width: 80%;
+    display: flex;
+  }
+}

@@ -1,0 +1,118 @@
+.table {
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: center;
+}
+.th {
+  background-color: rgba(109, 200, 42, 0.7);
+  text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
+  color: #fff;
+  height: 30px;
+}
+.td:nth-child(1),
+.th:nth-child(1) {
+  width: 7%;
+}
+.td:nth-child(2) {
+  text-align: left;
+  padding-left: 15px;
+}
+.td:nth-child(2),
+.th:nth-child(2) {
+  width: 56%;
+}
+.td:nth-child(3),
+.th:nth-child(3) {
+  width: 13%;
+}
+.td:nth-child(4),
+.th:nth-child(4) {
+  width: 14%;
+}
+.td:nth-child(4) {
+  font-size: 14px;
+}
+.td:nth-child(5),
+.th:nth-child(5) {
+  width: 10%;
+}
+
+.td {
+  height: 35px;
+  color: black;
+}
+.tr:nth-child(odd) {
+  background: #eaeaed;
+}
+.table,
+.th,
+.tr,
+.td {
+  border: none;
+}
+
+.tr {
+  display: flex;
+}
+
+.search {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search > input {
+  width: 93%;
+  height: 36px;
+}
+
+.search-icon {
+  margin-left: 10px;
+}
+
+@media all and (min-width: 769px) and (max-width: 1023px) {
+  .td {
+    font-size: 13px;
+  }
+  .td:nth-child(4) {
+    font-size: 13px;
+  }
+}
+
+@media all and (min-width: 426px) and (max-width: 768px) {
+  .th {
+    font-size: 13px;
+  }
+  .td:nth-child(4) {
+    font-size: 12px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 425px) {
+  .th {
+    font-size: 12px;
+    height: 40px;
+  }
+  .td {
+    font-size: 10px;
+  }
+  .td:nth-child(4) {
+    font-size: 10px;
+  }
+  .td:nth-child(3) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .td:nth-child(1),
+  .th:nth-child(1) {
+    width: 13%;
+  }
+
+  .td:nth-child(2),
+  .th:nth-child(2) {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

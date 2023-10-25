@@ -1,0 +1,547 @@
+.adminPage,
+.adminPage * {
+  padding: 0;
+  margin: 0;
+  /* border: 1px solid gray; */
+  box-sizing: border-box;
+  list-style: none;
+  z-index: 10;
+}
+
+.adminPage {
+  position: relative;
+}
+
+
+
+
+.adminNav {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.adminNav a {
+  text-decoration: none;
+  color: black;
+}
+
+.adminNav * {
+  border: none;
+}
+
+.adminNav>* {
+  position: absolute;
+  color: black;
+  display: flex;
+}
+
+.adminNav>ul {
+  bottom: 4px;
+  width: 70%;
+  right: 5%;
+}
+
+.adminNav>ul>li {
+  margin-left: 5%;
+}
+
+.adminNav>ul>li>a {
+  display: block;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.adminNav>h1 {
+  bottom: 10px;
+  left: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.adminCategory {
+  width: 200px;
+  height: calc(100vh - 120px);
+  padding: 13px;
+  user-select: none;
+}
+
+/* .adminCategory > :nth-child(2),
+.adminCategory > :nth-child(3) {
+  display: none;
+} */
+.adminCategory>*,
+.adminCategory li {
+  cursor: pointer;
+}
+
+.adminCategory>div {
+  padding-left: 4px;
+}
+
+.adminCategory svg {
+  color: coral;
+}
+
+.adminCategory .adminCategoryMenu svg {
+  color: black;
+  font-size: 1.9rem;
+}
+
+.adminCategory>div:nth-child(2),
+.adminCategory>ul>li {
+  position: relative;
+  border: 1px solid #fff;
+  background: rgb(255, 225, 191);
+}
+
+.adminCategory>ul>li>ul>li {
+  position: relative;
+  border-top: 1px solid #fff;
+  background: rgb(255, 218, 175);
+}
+
+.adminCategory>ul>li>ul>li>ul>li {
+  position: relative;
+  border-top: 1px solid #fff;
+  background: rgb(255, 202, 142);
+}
+
+.adminCategory>ul>li>div:first-child {
+  margin-left: 4px;
+}
+
+.adminCategory>ul>li>ul>li>div:first-child {
+  margin-left: 11px;
+}
+
+.adminCategory>ul>li>ul>li>ul>li>div:first-child {
+  margin-left: 19px;
+}
+
+
+
+
+
+
+
+
+
+.admincontentBox,
+.adminModal {
+  position: absolute;
+}
+
+.admincontentBox ::placeholder {
+  font-size: 0.5rem;
+}
+
+.admincontentBox {
+  top: 100px;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: calc(100vh - 120px);
+}
+
+.admincontentBox>div {
+  position: absolute;
+}
+
+.adminEdit {
+  top: 50px;
+  left: 70px;
+  width: 80%;
+  height: 100px;
+}
+
+.adminEdit>button {
+  padding: 2px 7px;
+}
+
+.adminViewer {
+  top: 180px;
+  left: 70px;
+  width: 80%;
+  height: 600px;
+}
+
+.adminViewer>div:first-child {
+  width: 100%;
+  height: 10%;
+}
+
+.adminViewer>div:last-child {
+  width: 100%;
+}
+
+.viewrHead {
+  display: inline-block;
+  position: relative;
+}
+
+.viewrHead>* {
+  margin: 2px 5px;
+}
+
+.viewrHead>input:last-child {
+  position: absolute;
+  top: 30px;
+}
+
+/* .viewerBody, */
+.adminViewer>span {
+  padding: 0px 10px 2px;
+  margin-top: 10px;
+  display: inline-block;
+  height: 37px;
+  position: relative;
+  bottom: 0px;
+  vertical-align: top;
+  transform: translateY(-2px);
+
+}
+
+.adminViewer>span:nth-child(2) {
+  width: 170px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.adminViewer>span:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 100%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-top-left-radius: 5px;
+}
+
+.adminViewer>span:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-top-right-radius: 5px;
+}
+
+.adminViewer>span:nth-child(3) {
+  width: calc(100% - 170px);
+}
+
+.adminViewer>span:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 50%;
+  left: 0px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-bottom-left-radius: 5px;
+}
+
+.viewerBody {
+  height: 85%;
+  padding: 5px;
+}
+
+/* .viewerBody .bd {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  
+  z-index: 1;
+}
+.viewerBody .bd.no1 {
+  top: 0px;
+  left: 0px;
+  border-left: 1px solid black;
+}
+.viewerBody .bd.no2 {
+  top: 0px;
+  left: 50%;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-top-right-radius: 10px;
+}
+.viewerBody .bd.no3 {
+  top: 50%;
+  left: 0px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-bottom-left-radius: 10px;
+}
+.viewerBody .bd.no4 {
+  top: 50%;
+  left: 50%;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-bottom-right-radius: 10px;
+} */
+
+
+.adminUserPage {
+  width: 90%;
+  max-width: 1000px;
+  left: 5%;
+  top: 5%;
+}
+
+.adminUserBox {
+  border: 1px solid gray;
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.adminUserBox img,
+.adminUserBox>div:first-child {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.adminUserBox>div>span {
+  display: inline-block;
+  height: 30px;
+  padding: 3px;
+  margin-top: 10px;
+  margin-left: 20px;
+  /* border: 1px solid black; */
+}
+
+
+
+
+.adminBoardBody {
+  margin-left: 30px;
+  width: 80%;
+}
+
+.commentBox {
+  margin-bottom: 50px;
+}
+
+.cmtInput {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: rgb(255, 249, 243);
+  padding: 15px;
+  margin: 15px 0px;
+}
+
+.cmtInput> :last-child {
+  margin-bottom: 15px;
+}
+
+.cmtInput>.cmt_info {
+  display: flex;
+  height: 30px;
+}
+
+.cmtInput>.cmt_info>* {
+  display: block;
+  font-size: 0.9rem;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 5px;
+}
+
+.cmtInput>.cmt_info>*:first-child {
+  width: 30px;
+  background: url(../../img/leaf1.png);
+  background-size: cover;
+}
+
+.cmtInput_textbox {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+
+.cmtInput_textbox>* {
+  display: block;
+  height: 60px;
+}
+
+.cmt_ProfileImg {
+  display: block;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: #eee;
+  color: #ccc;
+}
+
+.cmt_ProfileImg>img {
+  width: 60px;
+  height: 60px;
+}
+
+.cmtInput_textbox>*:nth-child(2) {
+  width: calc(100% - 120px);
+}
+
+.cmtInput_textbox>*:nth-child(2)>textarea {
+  width: calc(100% - 24px);
+  margin: 0px 12px;
+  height: 100%;
+  resize: none;
+}
+
+.cmtInput_textbox>*:nth-child(3) {
+  width: 60px;
+}
+
+.commentCount {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  background: rgb(255, 249, 243);
+}
+
+.commentBox hr {
+  border-top: 1px solid #ddd;
+  border-left: 0;
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.commentBox_cmtInfo {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+}
+
+.commentBox_cmtInfo>* {
+  display: block;
+}
+
+.commentBox_cmtInfo>div {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.cmt_writeData {
+  margin-bottom: 10px;
+}
+
+.cmt_writeData>strong {
+  font-size: 1.1rem;
+}
+
+.cmt_writeData>span {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.adminModal {
+  position: absolute;
+  display: none;
+}
+
+
+
+
+.cmtInput2 {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  padding: 15px;
+  margin: 15px 0px;
+  position: relative;
+}
+
+.cmtInput2> :last-child {
+  margin-bottom: 15px;
+}
+
+.cmtInput2>.cmt_info2 {
+  display: flex;
+  height: 30px;
+}
+
+.cmtInput2>.cmt_info2>* {
+  display: block;
+  font-size: 0.9rem;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 5px;
+}
+
+.cmtInput2>.cmt_info2>*:first-child {
+  width: 30px;
+}
+
+.cmtInput_textbox2 {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+
+.cmtInput_textbox2>* {
+  display: block;
+  height: 60px;
+}
+
+.cmtInput_textbox2>*:nth-child(2) {
+  width: calc(100% - 120px);
+}
+
+.cmtInput_textbox2>*:nth-child(2)>textarea {
+  width: calc(100% - 24px);
+  margin: 0px 12px;
+  height: 100%;
+  resize: none;
+}
+
+.cmtInput_textbox2>*:nth-child(3) {
+  width: 60px;
+}
+
+.cmtBtnBox {
+  z-index: 11;
+}
+
+
+.cmtBtnBox>* {
+  display: inline-flex;
+  align-items:baseline;
+  justify-content: center;
+  font-size: 1rem;
+  margin-left: 8px;
+}
+.cmtBtnBox svg {
+  font-size: 0.8rem;
+  color: #999;
+}
+.cmtBtnBox>*>* {
+  margin-left: 2px;
+}
