@@ -794,23 +794,6 @@
   line-height: 60px;
 }
 
-.changing-duplicated-msg3 {
-  margin-top: 0;
-  color: red;
-  font-size: small;
-  font-weight: bold;
-}
-.changing-duplicated1-msg3 {
-  margin-top: 0;
-  color: blue;
-  font-size: small;
-  font-weight: bold;
-}
-
-.changing-duplicated1-msg4 {
-  font-size: small;
-}
-
 @media screen and (min-width: 795px) and (max-width: 1023px) {
   .menuBtn {
     width: 130px;

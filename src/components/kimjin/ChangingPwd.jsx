@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { call } from "../kimjin/ApiService";
-import sha256 from "crypto-js/sha256";
 
 const ChangingPwd = () => {
   const movePage = useNavigate();
   const [password, setPassword] = useState("");
-  const [privacys, setPrivacys] = useState([]);
-
-  useEffect(() => {
-    call("/user/mypage", "GET", null).then((response) => {
-      console.log("==========useEffect 잘 가져왔나", response);
-      setPrivacys(response.data[0]);
-    });
-  }, []);
+  const users = useSelector((state) => state.user);
 
   const pwdChange = (e) => {
     setPassword(e.target.value);
@@ -22,15 +13,12 @@ const ChangingPwd = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    movePage("/user/changing");
 
-    call("/user/changingpwd", "POST", { password }).then((response) => {
-      console.log(response.error);
-      if (response.error === "true") {
-      } else if (response.error === "false") {
-        alert("비밀번호가 맞지않습니다.");
-      }
-    });
+    if (users.find((p) => p.id === "jin").pwd === password) {
+      movePage("/user/changing");
+    } else {
+      alert("비밀번호가 올바르지 않습니다.");
+    }
   };
 
   return (
@@ -49,7 +37,7 @@ const ChangingPwd = () => {
                 <input
                   type="text"
                   style={{ border: "none" }}
-                  placeholder={privacys.userId}
+                  placeholder={users[2].id}
                   readOnly
                 />
               </div>
