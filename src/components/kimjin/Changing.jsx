@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { call } from "../kimjin/ApiService";
+import { call } from "./ApiService";
 
 const Changing = () => {
+  const editItem = (item) => {
+    console.log("item입니다 ", item);
+    call("/user/changing", "PUT", item)
+      .then((response) => {
+        console.log("Data updated successfully", response);
+      })
+      .catch((error) => {
+        console.error("Error updating data:", error);
+      });
+  };
+
   const onNickNameChange = (e) => {
     setNewNickName(e.target.value);
   };
@@ -56,38 +67,6 @@ const Changing = () => {
   const [newEmail, setNewEmail] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [newAddress, setNewAddress] = useState("");
-  const [nicknameCheck, setNicknameCheck] = useState(0);
-
-  console.log(
-    "value값",
-    now_pwd,
-    new_pwd,
-    new_pwd_check,
-    newName,
-    newNickName,
-    newEmail,
-    newPhone,
-    newAddress
-  );
-
-  const onCheckNickName = (e) => {
-    e.preventDefault();
-
-    console.log(newNickName);
-    call(`/user/changing/${newNickName}`, "GET", null).then((response) => {
-      if (response === 1) {
-        console.log("이미 사용 중인 닉네임입니다.");
-        setNicknameCheck(1); // 이미 사용 중인 닉네임이라면 1로 설정
-      } else if (response === -1) {
-        console.log("사용 가능한 닉네임입니다.");
-        setNicknameCheck(-1); // 사용 가능한 닉네임이라면 -1로 설정
-      }
-    });
-
-    if (nicknameCheck === 1) {
-      return;
-    }
-  };
 
   const pwdSubmit = (e) => {
     e.preventDefault();
@@ -100,13 +79,50 @@ const Changing = () => {
     console.log("now_pwd ====> ", now_pwd);
     console.log("privecy ====> ", privacys.password);
 
+    const email = privacys ? privacys.email : "";
+    const nickName = privacys ? privacys.nickName : "";
+    const address = privacys ? privacys.address : "";
+
+    //이메일 입력안했을때
+    if (newEmail === "") {
+      setNewEmail(email);
+    }
+
+    //닉네임을 입력안했을때
+    if (newNickName === "") {
+      setNewNickName(nickName);
+    }
+
+    //주소를 적지않았을때
+    if (newAddress === "") {
+      setNewAddress(address);
+    }
+
+    //비밀번호가 틀렸을 때
+    if (privacys.password !== now_pwd) {
+      alert("현재 비밀번호가 다릅니다. 다시 입력해주세요.");
+      setNow_pwd("");
+      return;
+    }
+    if (new_pwd !== new_pwd_check) {
+      alert("비밀번호가 일치하지 않습니다.");
+      setNew_pwd("");
+      setNew_pwd_check("");
+      return;
+    }
+
+    //비밀번호가 맞을 때
+    if (new_pwd === "") {
+      alert("비밀번호를 입력해 주세요.");
+      return;
+    }
     const item = {
-      id: privacys.id,
+      id: "1",
       nickName: newNickName,
       email: newEmail,
+      password: new_pwd,
       address: newAddress,
     };
-
     call("/user/changing", "PUT", item)
       .then((response) => {
         console.log("Data updated successfully", response);
@@ -114,9 +130,7 @@ const Changing = () => {
       .catch((error) => {
         console.error("Error updating data:", error);
       });
-
-    // movePage("/user/mypage");
-    // window.location.reload();
+    movePage("/user/mypage");
   };
 
   return (
@@ -131,22 +145,15 @@ const Changing = () => {
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <label>이름</label>
                 <label>닉네임</label>
-                {nicknameCheck === 1 ? (
-                  <p className="changing-duplicated-msg4"></p>
-                ) : (
-                  ""
-                )}
-                {nicknameCheck === -1 ? (
-                  <p className="changing-duplicated1-msg4"></p>
-                ) : (
-                  ""
-                )}
                 <label>이메일</label>
                 <label>핸드폰 번호</label>
+                <label>현재 비밀번호</label>
+                <label>새 비밀번호</label>
+                <label>비밀번호 확인</label>
                 <label>주소</label>
               </div>
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <input type="hidden" value={privacys.id ?? ""} />
+                <input type="hidden" value={privacys.id} />
                 <input
                   type="text"
                   value={newName}
@@ -172,20 +179,6 @@ const Changing = () => {
                     outlineColor: "rgba(109, 200, 42, 1)",
                   }}
                 />
-                {nicknameCheck === 1 ? (
-                  <p className="changing-duplicated-msg3">
-                    이미 사용 중인 닉네임입니다.
-                  </p>
-                ) : (
-                  ""
-                )}
-                {nicknameCheck === -1 ? (
-                  <p className="changing-duplicated1-msg3">
-                    사용가능한 닉네임입니다.
-                  </p>
-                ) : (
-                  ""
-                )}
                 <input
                   type="email"
                   value={newEmail}
@@ -208,6 +201,33 @@ const Changing = () => {
                   readOnly
                 />
                 <input
+                  type="text"
+                  value={now_pwd}
+                  onChange={onNow_PswChange}
+                  style={{
+                    borderRadius: "4px",
+                    outlineColor: "rgba(109, 200, 42, 1)",
+                  }}
+                />
+                <input
+                  type="password"
+                  value={new_pwd}
+                  onChange={onPassWordChange}
+                  style={{
+                    borderRadius: "4px",
+                    outlineColor: "rgba(109, 200, 42, 1)",
+                  }}
+                />
+                <input
+                  type="password"
+                  value={new_pwd_check}
+                  onChange={onNew_PswChange}
+                  style={{
+                    borderRadius: "4px",
+                    outlineColor: "rgba(109, 200, 42, 1)",
+                  }}
+                />
+                <input
                   type="address"
                   value={newAddress}
                   placeholder={privacys.address}
@@ -218,9 +238,6 @@ const Changing = () => {
                   }}
                 />
               </div>
-              <div>
-                <button onClick={onCheckNickName}>중복확인</button>
-              </div>
             </div>
             <div
               style={{
@@ -229,12 +246,6 @@ const Changing = () => {
                 marginRight: "10px",
               }}
             >
-              <button
-                className="changing-com-button"
-                onClick={(e) => movePage("/user/changingpass")}
-              >
-                비밀번호 변경
-              </button>
               <button type="submit" className="changing-com-button">
                 수정 완료
               </button>

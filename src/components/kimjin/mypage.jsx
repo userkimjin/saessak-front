@@ -1,35 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import ImgUpdate from "../kimjin/ImgUpdate";
+import ImgUpdate from "./ImgUpdate";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { call } from "../kimjin/ApiService";
+import { call } from "./ApiService";
 
 const MyPage = () => {
   const movePage = useNavigate();
+  const 꺼내온정보 = useSelector((state) => state.user);
 
   const [privacys, setPrivacys] = useState([]);
-  const [isLogin, setIsLogin] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const accessToken = localStorage.getItem("ACCESS_TOKEN");
-    if (accessToken !== "") {
-      // 로그인한 상태
-      setIsLogin(true);
-    } else {
-      alert("로그인 후 이용해주세요!");
-      navigate("/login");
-    }
-  }, []);
 
   // useEffect 훅 사용: 컴포넌트가 렌더링될 때 실행되며 초기 데이터를 불러옴
   useEffect(() => {
     call("/user/mypage", "GET", null).then((response) => {
-      console.log("==========useEffect 잘 가져왔나", response);
       setPrivacys(response.data[0]);
+      console.log("==========useEffect 잘 가져왔나", response);
     });
   }, []);
 
+  // const addPrivacy = (privacy) => {
+  //   call("/user/mypage", "GET", privacy).then((response) =>
+  //     setPrivacy(response.data)
+  //   );
+
+  //   console.log("============privacys" + privacys);
+  // };
+
+  console.log("꺼내온정보", 꺼내온정보);
   return (
     <div className="section">
       <div className="manu-2">
@@ -58,8 +55,8 @@ const MyPage = () => {
                   readOnly
                 ></input>
                 <input
-                  type="password"
-                  placeholder={"***********"}
+                  type="passward"
+                  placeholder={privacys.password}
                   readOnly
                 ></input>
                 <input
@@ -75,6 +72,14 @@ const MyPage = () => {
                 ></input>
               </div>
             </div>
+            {/* <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div> */}
             <div style={{ textAlign: "right" }}>
               <button
                 onClick={() => movePage("/user/changingpwd")}
