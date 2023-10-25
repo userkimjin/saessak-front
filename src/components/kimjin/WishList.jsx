@@ -7,7 +7,6 @@ import { Button } from "react-bootstrap";
 const WishList = () => {
   const movePage = useNavigate();
   const users = useSelector((state) => state.user);
-  console.log("유저", users[2].userproduct.id);
   const dispatch = useDispatch();
 
   return (
