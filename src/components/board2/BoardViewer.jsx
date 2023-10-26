@@ -4,7 +4,7 @@ import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 
 
 const BoardViewer = ({contents}) => {
-  return <Viewer initialValue={contents || ''} />;
+  return <Viewer initialValue={String(contents)} />;
 }
 
 export default BoardViewer
