@@ -219,7 +219,9 @@ const Changing = () => {
                 />
               </div>
               <div>
-                <button onClick={onCheckNickName}>중복확인</button>
+                <button className="signup-bt1" onClick={onCheckNickName}>
+                  중복확인
+                </button>
               </div>
             </div>
             <div
